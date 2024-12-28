@@ -56,6 +56,9 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip -d wwwroot
 
+      - name: Ensure web root directory exists
+        run: mkdir -p /home/site/wwwroot
+
       - name: Copy files to web root
         run: cp -r wwwroot/* /home/site/wwwroot/
 
