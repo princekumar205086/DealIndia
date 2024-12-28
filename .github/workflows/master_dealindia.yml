@@ -54,7 +54,7 @@ jobs:
           name: php-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip
+        run: unzip release.zip -d wwwroot
       
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -62,5 +62,5 @@ jobs:
         with:
           app-name: 'dealindia'
           slot-name: 'Production'
-          package: .
+          package: wwwroot
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_86B0F42B874D4BEDA8FDECF54C6849A2 }}
