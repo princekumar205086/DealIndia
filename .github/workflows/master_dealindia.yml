@@ -56,6 +56,9 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
       
+      - name: Create site root directory if it doesn't exist
+        run: mkdir -p /home/site/wwwroot
+
       - name: Move files to site root
         run: |
           mv * /home/site/wwwroot
